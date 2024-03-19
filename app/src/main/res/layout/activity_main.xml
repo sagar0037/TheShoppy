@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="24sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/customerNameText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/name_hint"
+            android:layout_below="@id/textView"
+            android:layout_margin="16dp"/>
+
+        <AutoCompleteTextView
+            android:id="@+id/provinceText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/province_hint"
+            android:layout_below="@id/customerNameText"
+            android:layout_margin="16dp"/>
+
+        <RadioGroup
+            android:id="@+id/computerTypeRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/provinceText"
+            android:layout_margin="16dp">
+
+            <RadioButton
+                android:id="@+id/desktopRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/desktop"/>
+
+            <RadioButton
+                android:id="@+id/laptopRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/laptop"/>
+
+        </RadioGroup>
+
+        <Spinner
+            android:id="@+id/brandSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/computerTypeRadioGroup"
+            android:layout_margin="16dp"/>
+
+        <LinearLayout
+            android:id="@+id/spinnerLinearLayout"
+            android:layout_below="@+id/brandSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <CheckBox
+                android:id="@+id/ssdCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ssd"
+                android:layout_weight="1"
+                />
+
+            <CheckBox
+                android:id="@+id/printerCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/printer"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/radioGroupLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/spinnerLinearLayout">
+
+            <RadioGroup
+                android:id="@+id/laptopPeripherals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16sp"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/coolingMatRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cooling_mat"/>
+
+                <RadioButton
+                    android:id="@+id/usbHubRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/usb_c_hub"/>
+
+                <RadioButton
+                    android:id="@+id/laptopStandRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/laptop_stand"/>
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/desktopPeripherals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16sp"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/noneRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/none"/>
+
+                <RadioButton
+                    android:id="@+id/webcamRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/webcam"/>
+
+                <RadioButton
+                    android:id="@+id/externalDriveRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/external_hard_drive"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/calculateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calculate_invoice"
+            android:layout_below="@id/radioGroupLinearLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"/>
+
+        <TextView
+            android:id="@+id/invoiceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:maxLines="7"
+            android:layout_below="@id/calculateButton"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="16dp"/>
+
+    </RelativeLayout>
+
+</ScrollView>
