@@ -13,4 +13,8 @@
     <string name="webcam">Webcam</string>
     <string name="external_hard_drive">External Hard Drive</string>
     <string name="calculate_invoice">Calculate Invoice</string>
+    <string name="computer_type">Computer Type:</string>
+    <string name="brand">Brand:</string>
+    <string name="additional">Additional:</string>
+    <string name="peripheral_label">Select a peripheral device:</string>
 </resources>

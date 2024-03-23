@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:text="@string/app_name"
             android:textSize="24sp"
+            android:textStyle="bold"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"/>
 
@@ -25,7 +26,8 @@
             android:layout_height="50dp"
             android:hint="@string/name_hint"
             android:layout_below="@id/textView"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            android:inputType="textPersonName" />
 
         <AutoCompleteTextView
             android:id="@+id/provinceText"
@@ -35,12 +37,21 @@
             android:layout_below="@id/customerNameText"
             android:layout_margin="16dp"/>
 
+        <TextView
+            android:id="@+id/computerTypeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/computer_type"
+            android:layout_below="@id/provinceText"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"/>
+
         <RadioGroup
             android:id="@+id/computerTypeRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@id/provinceText"
+            android:layout_below="@id/computerTypeTextView"
             android:layout_margin="16dp">
 
             <RadioButton
@@ -57,16 +68,35 @@
 
         </RadioGroup>
 
+        <TextView
+            android:id="@+id/brandTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/brand"
+            android:layout_below="@id/computerTypeRadioGroup"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"/>
+
         <Spinner
             android:id="@+id/brandSpinner"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/computerTypeRadioGroup"
-            android:layout_margin="16dp"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/brandTextView"
+            android:layout_margin="16dp"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/additionalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/additional"
+            android:layout_below="@id/brandSpinner"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"/>
 
         <LinearLayout
             android:id="@+id/spinnerLinearLayout"
-            android:layout_below="@+id/brandSpinner"
+            android:layout_below="@+id/additionalTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp">
@@ -88,12 +118,22 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/peripheralsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/peripheral_label"
+            android:layout_below="@id/spinnerLinearLayout"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            android:layout_marginHorizontal="16dp"/>
+
         <LinearLayout
             android:id="@+id/radioGroupLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@id/spinnerLinearLayout">
+            android:layout_below="@id/peripheralsTextView">
 
             <RadioGroup
                 android:id="@+id/laptopPeripherals"
@@ -163,11 +203,12 @@
 
         <TextView
             android:id="@+id/invoiceText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
             android:textSize="18sp"
-            android:maxLines="7"
+            android:maxLines="10"
+            android:textAlignment="textStart"
             android:layout_below="@id/calculateButton"
             android:layout_centerHorizontal="true"
             android:layout_margin="16dp"/>
