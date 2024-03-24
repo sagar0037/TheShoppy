@@ -29,17 +29,18 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup computerTypeRadioGroup, laptopPeripherals, desktopPeripherals;
     Spinner spinner;
     CheckBox ssdCheckBox, printerCheckBox;
-    TextView peripheralsTextView, invoiceText;
+    TextView peripheralsTextView, invoiceTitle, invoiceText;
 
+    //list of provinces (for checking valid input of province)
     final private List<String> provinces = Arrays.asList(
             "Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador",
             "Nova Scotia", "Ontario", "Prince Edward Island", "Quebec", "Saskatchewan"
     );
 
+    //list of brands for displaying in the spinner (drop-down list)
     private ArrayList<String> brands;
-
-    private final Invoice invoice = new Invoice();
-    private double baseCost = 0;
+    private final Invoice invoice = new Invoice(); //creating object of Invoice class
+    private double baseCost = 0; //cost without tax
     final double TAX_RATE = 0.13; // constant for 13% TAX
 
 
@@ -61,14 +62,18 @@ public class MainActivity extends AppCompatActivity {
         computerTypeRadioGroup = findViewById(R.id.computerTypeRadioGroup);
         laptopPeripherals = findViewById(R.id.laptopPeripherals);
         desktopPeripherals = findViewById(R.id.desktopPeripherals);
+
+        //to handle the radio button click for computer type radio group (laptop and desktop)
         computerTypeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                //if radio button for desktop is clicked
                 if (checkedId == R.id.desktopRadioButton) {
                     peripheralsTextView.setVisibility(View.VISIBLE);
                     desktopPeripherals.setVisibility(View.VISIBLE);
                     laptopPeripherals.setVisibility(View.GONE);
                 }
+                //if radio button for laptop is clicked
                 else if (checkedId == R.id.laptopRadioButton) {
                     peripheralsTextView.setVisibility(View.VISIBLE);
                     laptopPeripherals.setVisibility(View.VISIBLE);
@@ -109,8 +114,10 @@ public class MainActivity extends AppCompatActivity {
         calculateInvoiceBtn.setOnClickListener(new View.OnClickListener() { // when the button is clicked
             @Override
             public void onClick(View view) {
-                //invoice as a multi-line text
+                //invoice
+                invoiceTitle = findViewById(R.id.invoiceTitle);
                 invoiceText = findViewById(R.id.invoiceText);
+                invoiceTitle.setText(""); //clears invoice label
                 invoiceText.setText(""); //clears the invoice
 
                 //validation for customer name and province
@@ -137,14 +144,14 @@ public class MainActivity extends AppCompatActivity {
                 invoice.setTotalCost(String.format(Locale.ENGLISH,"$%.2f", totalCost));
 
                 //text to be shown when the Calculate Button is clicked
-                String result = "INVOICE:\n\n" +
-                        "Customer: " + invoice.getCustomerName() + "\n" +
+                String result = "Customer: " + invoice.getCustomerName() + "\n" +
                         "Province: " + invoice.getProvince() + "\n" +
                         "Computer: " + invoice.getComputerType() + "\n" +
                         "Brand: " + invoice.getBrand() + "\n" +
                         "Additional: " + invoice.getAdditional() + "\n" +
                         "Added Peripherals: " + invoice.getPeripherals() + "\n" +
                         "Cost: " + invoice.getTotalCost();
+                invoiceTitle.setText(R.string.invoice_label);
                 invoiceText.setText(result);
 
             }
@@ -230,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     Toast.makeText(view.getContext(), "Please select one peripheral", Toast.LENGTH_SHORT).show();
                     return false;
-                }
+            }
             }
 
             //selection of the cost of the desktop computers based on brand

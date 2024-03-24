@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">TheShoppy</string>
+    <string name="name_label">Customer Name:</string>
     <string name="name_hint">Enter Customer Name</string>
-    <string name="province_hint">Province</string>
+    <string name="province_label">Province:</string>
+    <string name="province_hint">Enter Province</string>
     <string name="desktop">Desktop</string>
     <string name="laptop">Laptop</string>
     <string name="ssd">SSD</string>
@@ -17,4 +19,5 @@
     <string name="brand">Brand:</string>
     <string name="additional">Additional:</string>
     <string name="peripheral_label">Select a peripheral device:</string>
+    <string name="invoice_label">Invoice:</string>
 </resources>
